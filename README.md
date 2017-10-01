@@ -145,3 +145,13 @@ A few things to note about a .go file:
 * Capitalized func names == exported function
 * Lowercase func names == private; non-exported function
 
+### Installing a Go Program
+
+In order to install a Go program, you need to make use of the Go Workspace concept.
+
+1. Create an enviornment variable called GOPATH that points to one or more locations on your system.  (e.g. c\GoWorkspace\)
+1. Create a folder structure that conforms to the Go convention
+   * {workspace}\src\{domain_or_namespace}\{project_name}
+   * e.g. GoWorkspace\src\MyDomainName\Hello
+1. From the ```src``` folder, run: ```go install MyDomainName\Hello```
+1. Note that there is now a ```bin``` folder at the same level as ```src``` that contains the .exe
