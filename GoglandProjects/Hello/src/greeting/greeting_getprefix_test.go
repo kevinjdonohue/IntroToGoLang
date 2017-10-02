@@ -24,6 +24,15 @@ func TestGetPrefixShouldReturnDrGivenJoe(t *testing.T) {
 	GetPrefixShouldReturnCorrectPrefixForAGivenName(t, name, expectedPrefix)
 }
 
+func TestGetPrefixShouldReturnDrGivenAmy(t *testing.T) {
+	//arrange
+	var name string = "Amy"
+	var expectedPrefix string = "Dr "
+
+	// act & assert
+	GetPrefixShouldReturnCorrectPrefixForAGivenName(t, name, expectedPrefix)
+}
+
 func TestGetPrefixShouldReturnMrsGivenMary(t *testing.T) {
 	//arrange
 	var name string = "Mary"
