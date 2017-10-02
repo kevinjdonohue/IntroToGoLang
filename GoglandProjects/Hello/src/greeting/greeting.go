@@ -10,7 +10,7 @@ type Salutation struct {
 type printer func(string) ()
 
 func Greet(salutation Salutation, do printer, isFormal bool) {
-	message, alternate := createMessage(salutation.Name, salutation.Greeting)
+	message, alternate := CreateMessage(salutation.Name, salutation.Greeting)
 	if prefix := GetPrefix(salutation.Name); isFormal {
 		do(prefix + message)
 	} else {
@@ -35,8 +35,8 @@ func CreatePrintFunction(custom string) printer {
 	}
 }
 
-func createMessage(name string, greeting string) (message string, alternate string) {
-	message = greeting + " " + name
-	alternate = greeting + " " + name
+func CreateMessage(name string, messagePrefix string) (primaryMessage string, alternateMessage string) {
+	primaryMessage = messagePrefix + " " + name
+	alternateMessage = "Yo " + " " + name
 	return
 }
