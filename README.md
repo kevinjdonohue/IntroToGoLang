@@ -155,3 +155,179 @@ In order to install a Go program, you need to make use of the Go Workspace conce
    * e.g. GoWorkspace\src\MyDomainName\Hello
 1. From the ```src``` folder, run: ```go install MyDomainName\Hello```
 1. Note that there is now a ```bin``` folder at the same level as ```src``` that contains the .exe
+
+## Module 3:  Variables, Types and Pointers
+
+### Basic Types
+
+* bool
+* string
+* int, int8, int16, int32, int64
+* uint, uint8, uint16, uint32, uint64, uintptr
+* byte (uint8)
+* rune (int32), like a char
+* float32, float64
+* complex64, complex128
+
+### Additional Types
+
+* Array - not as common; Slice used instead
+* Slice - vector or a list; often used instead of Array
+* Struct - similar to Structs from other languages
+* Pointer - memory address
+* Function - you can store or pass a function around; similar to JavaScript
+* Interface - Unlike other languages interfaces; no explicit implementation required to conform to an interface
+* Map - Dictionary-like; Map like in Java
+* Channel - communication mechanism between Go routines
+
+### Variable Declaration and Initialization
+
+Three different forms can be utilized to declare initialize variables in Go
+
+1. long form
+1. shorter form
+1. short form
+
+```Go
+var message string = "long form"
+
+var message2 = "shorter form - no type"
+
+message3 := "short form - no var or type"
+```
+
+### Pointer Basics
+
+Here is a basic pointer example:
+
+```Go
+message := "Hello Go World"
+greeting *string = &message  //this obtains the memory address for the message string
+
+fmt.Println(greeting)  //this prints the memory address
+fmt.Prinln(*greeting) //this prints the actual string value
+```
+
+### Passing Values
+
+By default when values are passed into a function (func) the value is copied.  As an alternative, you can pass in a pointer - which will allow you to essentially pass a reference to the value instead of a copy.
+
+### No Classes; User Defined Types Instead
+
+Instead Go has User Defined Types.
+
+User Defined Types can leverage any type from Go, say string or more usefully can leverage struct.  Here are a couple examples.
+
+```Go
+
+//created a user defined type based on a string
+type Name string
+
+var myName Name = "Kevin"
+
+//created a user defined type based on a struct
+//more interesting here because we can access the properties of the struct similar to getters on a class
+
+type Salutation struct {
+        name string
+        greeting string
+}
+
+var mySalutation = Salutation{"Joe", "Hello!"}
+```
+
+### Constants
+
+Constants can be declared by themselves like a variable or as a group using the ```Const()```syntax.
+
+```iota``` is a shorthand in Go for incrementing numbers.
+
+```Go
+
+const (
+        PI = 3.14
+        Language = "Go"
+)
+
+const (
+        A = iota
+        B
+        C
+)
+
+//printing A, B, C would result in 0, 1, 2
+
+const (
+        Mute = iota
+        Mono
+        Stereo
+        _
+        _
+        Surround
+)
+
+//printing Mute, Mono, Stereo, Surround would result in 0, 1, 2, 5 because the _ allows us to skip values in the sequence
+
+```
+
+## Module 4:  Functions
+
+Functions in Go are Types unlike in many other languages.
+
+### What is a function in Go
+
+* Can have multiple return values
+* Use them like any other type (pass them around, return them, etc. -- think functions in JavaScript)
+* Function literals - you can declare a function inside another function; allows for closures
+
+There are a few different ways to setup a function.  Here are a few examles of those different ways.
+
+Note:  In go if your function parameters are of the same type, you simply list the parameters and then the type after the last one - you can see this in the example function ```CreateMessage``` example below.
+
+```Go
+
+//simple function with a returna type; string
+func CreateMessage(name, greeting string) string {
+        return greeting + " " + name
+}
+
+//function with multiple (two) return values; strings
+func CreateMessageWithTwoReturnValues(name, greeting string) (string, string) {
+        return greeting + " " + name, "HEY! " + name
+}
+
+//function with multiple, named return values
+func CreateMessageWithNamedReturnValues(name, greeting string) (message string, alternate string) {
+        message = greeting + " " + name
+        alternate = "HEY! " + name
+        return
+}
+
+//variadic function - variable number of parameters indicated by the ...
+func CreateMessageVariadic(name string, greeting ...string) (message string, alternate string) {
+
+        message = greeting[0] + " " + name
+        alternate = greeting[len(greeting)-1] + " " + name
+        return
+}
+
+```
+
+### Function Types & Function Literals
+
+In Go you can declare function types.
+
+Here is an example:
+
+```Go
+
+type Printer func(string) ()
+
+//now we can create a function that returns this type + makes use of a closure
+function CreatePrinterFunction(custom string) Printer {
+        return func(s string) {
+                fmt.Println(s + custom)
+        }
+}
+
+```
