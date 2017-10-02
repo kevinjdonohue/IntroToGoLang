@@ -363,3 +363,42 @@ if prefix := "Foo "; someBool {
 * Don't need an expression
 * Cases can be expressions
 * Can switch on types
+
+Examples:
+
+```Go
+
+switch name {
+        case "Bob":
+                prefix = "Dr"
+        case "Mary":
+                prefix = "Mrs"
+        case "Joe":
+                prefix = "Mr"
+        default:
+                prefix = "Sir"
+}
+
+//alternatively, you can switch on a boolean value
+switch {
+        case name == "Bob":
+                prefix = "Mr"
+        case name == "Mary":
+                prefix = "Mrs"
+        case name == "Joe", name == "Amy", len(name) == 10:
+                prefix = "Dr"
+        default:
+                prefix = "Sir"
+}
+
+//also, you can switch on types
+switch t := x.(type) {
+        case int:
+                fmt.Println("int")
+        case string:
+                fmt.Println("string)
+        default:
+                fmt.Println("unknown")
+}
+
+```
