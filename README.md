@@ -331,3 +331,35 @@ function CreatePrinterFunction(custom string) Printer {
 }
 
 ```
+
+## Module 5:  Branching
+
+* If statement -  similar but not the same as in other languages
+* Switch statement - completely different than other languages
+
+### If Statements
+
+```Go
+
+if someBool {
+
+} else {
+
+}
+
+//a funky twist is that you can declare and use a variable in the scope of the if statement - called embedded statements:
+
+if prefix := "Foo "; someBool {
+        doSomething(prefix)
+} else {
+        doSomethingElse()
+}
+
+```
+
+### Switch Statements
+
+* No default fall through
+* Don't need an expression
+* Cases can be expressions
+* Can switch on types
