@@ -29,20 +29,20 @@ func TestPrintMessageContinue(t *testing.T) {
 	loops.PrintMessageContinue("Hello Continue", 5)
 }
 
-func TestPrintMessageSlice(t *testing.T) {
+func TestPrintMessageRange(t *testing.T) {
 
 	//arrange
 	var messages []string = []string{"Hello Kevin", "Hello Kim", "Hello Kate"}
 
 	//act
-	loops.PrintMessageSlice(messages)
+	loops.PrintMessageRange(messages)
 }
 
-func TestPrintCharactersFromMessage(t *testing.T) {
+func TestPrintCharactersFromAString(t *testing.T) {
 
 	//arrange
 	var message string = "Hello World"
 
 	//act
-	loops.PrintCharactersFromMessage(message)
+	loops.PrintCharactersFromAString(message)
 }

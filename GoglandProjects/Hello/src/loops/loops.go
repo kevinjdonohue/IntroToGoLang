@@ -50,7 +50,7 @@ func PrintMessageContinue(message string, numberOfTimes int) {
 	}
 }
 
-func PrintMessageSlice(messages []string) {
+func PrintMessageRange(messages []string) {
 	//NOTE:  You can choose to not use the index value by doing: _, msg
 	//If you only need the index value you can just do i; you don't have to do i, _
 	// If you do i, msg then you must use both values; not using a variable is an error
@@ -60,7 +60,7 @@ func PrintMessageSlice(messages []string) {
 	}
 }
 
-func PrintCharactersFromMessage(message string) {
+func PrintCharactersFromAString(message string) {
 
 	for pos, char := range message {
 		fmt.Printf("Character: %#U starts at byte position %d\n", char, pos)

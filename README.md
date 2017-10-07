@@ -402,3 +402,101 @@ switch t := x.(type) {
 }
 
 ```
+
+## Module 6:  Loops
+
+Go contains a single loop keyword, ```for```, that can be used to iterate in a few different ways -- similar to ```for```, ```while```, and ```foreach``` loops in C#.
+
+### Loop Types
+
+* "For"
+* "While"
+* "ForEach"
+
+### For Loop
+
+The basic usage of the ```for``` keyword in Go looks just like a standard for loop in many other languages.
+
+```Go
+
+for i := 0; i < someValue; i++ {
+
+}
+
+````
+
+### While Loop
+
+```Go
+
+i := 0
+
+for i < someValue {
+        i++
+}
+
+```
+
+### Break
+
+```Go
+
+i := 0
+
+for {
+        if i >= someValue {
+                break
+        }
+        ...
+}
+
+```
+
+### Continue
+
+```Go
+
+i := 0
+
+for {
+        if i >= someValue {
+                break
+        }
+
+        if someCondition {
+                i++
+                continue
+        }
+}
+
+```
+
+### Range
+
+```Go
+
+for key, value := range someSlice {
+
+}
+
+for key := range someSlice {
+
+}
+
+for _, value := range someSlice {
+
+}
+
+```
+
+### Range (string)
+
+Go provides a little additional functionality when using range.  Range allows us to walk through a string, character by character (as if it were a slice or array)
+
+```Go
+
+for position, character := range someString {
+
+}
+
+```
