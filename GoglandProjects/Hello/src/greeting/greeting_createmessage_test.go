@@ -14,7 +14,6 @@ func TestCreateMessageShouldReturnHelloAndYoMessagesGivenJoeAndHello(t *testing.
 	var expectedAlternativeMessage string = "Yo " + " " + name
 
 	//act
-
 	actualPrimaryMessage, actualAlternativeMessage := greeting.CreateMessage(name, messagePrefix)
 
 	//assert
@@ -30,7 +29,6 @@ func TestCreateMessageShouldReturnEmptyHelloAndYoMessagesGivenEmptyName(t *testi
 	var expectedAlternativeMessage string = "Yo " + " " + name
 
 	//act
-
 	actualPrimaryMessage, actualAlternativeMessage := greeting.CreateMessage(name, messagePrefix)
 
 	//assert
@@ -46,7 +44,6 @@ func TestCreateMessageShouldReturnEmptyMessagesGivenEmptyNameAndMessagePrefix(t 
 	var expectedAlternativeMessage string = "Yo " + " " + name
 
 	//act
-
 	actualPrimaryMessage, actualAlternativeMessage := greeting.CreateMessage(name, messagePrefix)
 
 	//assert
