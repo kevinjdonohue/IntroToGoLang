@@ -500,3 +500,66 @@ for position, character := range someString {
 }
 
 ```
+
+## Module 7:  Maps
+
+General idea:  Map keys to values.
+
+In other languages such as C#, these data structures are known as Dictionaries.
+
+### Features
+
+* Keys have to have an equality operator defined
+* Maps are reference types; like a pointer
+* Not thread safe; special precautions when using in concurrent logic
+* Require ```make``` to initialize them
+
+
+### Operations
+
+* Insert
+* Update
+* Delete
+* Check for Existence
+
+Examples:
+```Go
+
+//initialize a map with string keys and string values
+var someMap map[string]string = make(map[string]string)
+
+//fetching values
+fetchedValue := someMap["someKey"]
+
+//using multiple assignment to distinguish between missing and zero value entry
+timeZones := map[string]int {
+        "PST": -8*60*60
+        "EST": -5*60*60
+}
+
+//check for ok, if true, value assigned to secords
+if seconds, ok := timeZones["UTC"]; ok {
+        return seconds
+}
+
+//check just for presence
+if _, present := timeZone["UTC"]; present {
+
+}
+
+//insert or update
+someMap["someKey"] = "someValue"
+
+//delete
+delete(someMap, "someKey")
+
+//shorthand initialization and assignment
+someMap := map[string]string {
+        "key1": "value1",
+        "key2": "value2",
+}
+
+```
+
+## Module 8:  Slices
+

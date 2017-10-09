@@ -1,6 +1,6 @@
 package main
 
-import "./greeting"
+import "greeting"
 
 func main() {
 	var s = greeting.Salutation{"Mary", "Hello"}

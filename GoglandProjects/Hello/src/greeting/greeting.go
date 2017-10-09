@@ -19,18 +19,20 @@ func Greet(salutation Salutation, do Printer, isFormal bool) {
 }
 
 func GetPrefix(name string) (prefix string) {
-	switch name {
-		case "Bob":
-			prefix = "Mr "
-		case "Joe", "Amy":
-			prefix = "Dr "
-		case "Mary":
-			prefix = "Mrs "
-		default:
-			prefix = "Dude "
+
+	//shorthand initialization for a map
+	prefixMap := map[string]string {
+		"Bob": "Mr ",
+		"Joe": "Dr ",
+		"Amy": "Dr ",
+		"Mary": "Mrs ",
 	}
 
-	return
+	if prefix, exists := prefixMap[name]; exists {
+		return prefix
+	}
+
+	return "Dude "
 }
 
 func CreatePrintFunction(custom string) Printer {
