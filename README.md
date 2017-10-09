@@ -563,3 +563,32 @@ someMap := map[string]string {
 
 ## Module 8:  Slices
 
+### Arrays vs Slices
+
+#### Arrays
+
+* Fixed size
+* Array type is comprised of its size and underlying type
+* No initialization (0 valued)
+* Not a pointer; value type
+
+```Go
+
+//preset size
+var someArray [5]array
+
+
+```
+
+#### Slices
+
+An abstraction of an Array.
+
+* Reference type
+* Fixed size but can be reallocated
+* Slice type is derived from underlying type only
+* Points to an Array
+* Use make to initialize, otherwise nil
+
+
+
