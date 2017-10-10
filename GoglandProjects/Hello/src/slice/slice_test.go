@@ -26,3 +26,16 @@ func TestReturnASliceOfASliceOfIntegers(t *testing.T) {
 	assert.Equal(t, 1, actualPartialListOfIntegers[0])
 	assert.Equal(t, 5, actualPartialListOfIntegers[3])
 }
+
+func TestAppendAnIntegerToASliceOfIntegers(t *testing.T) {
+
+	//arrange
+	newInteger := 8
+
+	//act
+	var actualListOfIntegers = slice.AppendAnIntegerToASliceOfIntegers(newInteger)
+
+	//assert
+	assert.Equal(t, 5, len(actualListOfIntegers), "because we appended one integer to it")
+	assert.Equal(t, 8, actualListOfIntegers[len(actualListOfIntegers)-1])
+}

@@ -7,14 +7,30 @@ type Salutation struct {
 	Greeting string
 }
 
+type Renamable interface {
+	Rename(newName string)
+}
+
+func RenameToFred(r Renamable) {
+	r.Rename("Fred")
+}
+
+func (salutation *Salutation) Rename(newName string) {
+	salutation.Name = newName
+}
+
+type Salutations []Salutation
+
 type Printer func(string) ()
 
-func Greet(salutation Salutation, do Printer, isFormal bool) {
-	message, alternate := CreateMessage(salutation.Name, salutation.Greeting)
-	if prefix := GetPrefix(salutation.Name); isFormal {
-		do(prefix + message)
-	} else {
-		do(alternate)
+func (salutations Salutations) Greet(do Printer, isFormal bool) {
+	for _, s := range salutations {
+		message, alternate := CreateMessage(s.Name, s.Greeting)
+		if prefix := GetPrefix(s.Name); isFormal {
+			do(prefix + message)
+		} else {
+			do(alternate)
+		}
 	}
 }
 

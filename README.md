@@ -577,7 +577,6 @@ someMap := map[string]string {
 //preset size
 var someArray [5]array
 
-
 ```
 
 #### Slices
@@ -590,5 +589,105 @@ An abstraction of an Array.
 * Points to an Array
 * Use make to initialize, otherwise nil
 
+Examples:
 
+```Go
 
+//long hand
+var someSlice []int = make([]int, 5, 10)
+
+//short hand
+someSlice := []int {1, 2, 3, 5, 8, 13, 21}
+
+//access a value
+someInteger = someSlice[0]
+
+//update a value
+someSlice[0] = 40
+
+//append an item to the slice; creates and returns another slice back
+someSlice := append(someSlice, 40)
+
+//you can even use the ... to expand the contents of a slice
+//this would return a slick with all of the values entered twice
+someSlice := append(someSlice, someSlice...)
+
+//delete
+//unusual syntax - use append to concatenate the two parts of the slice you want to keep
+someSlice := append(someSlice[:1], someSlice[2:])
+
+```
+
+## Module 9:  Methods & Interfaces
+
+### Methods
+
+Methods in Go are simply functions (func) that are defined to operate on any type (Go defined or user defined).
+
+Methods can take a regular type argument or a pointer type argument, depending upon the desired behavior.
+
+Example:
+
+```Go
+
+//regular
+func (employee Employee) UpdateEmployeeLastName(newLastName string) {
+        ...
+        //in this case you'd be operating on a copy of the employee type
+}
+
+//pointer
+func (employee *Employee) UpdateEmployeeLastName (newLastName string) {
+        ...
+        //in this case you are operating on the employee type via the pointer; by reference
+}
+
+//this would be called like this:
+someEmployee.UpdateEmployeeLastName("Jones")
+
+```
+
+### Interfaces
+
+Similar to interfaces in other langagues.
+
+A few differences:
+
+* No explicit implementation - a type inplements an interface implicitly by having methods with the appropriate signatures
+* An empty interface means everytype - similar to Object in C#
+
+Example:
+
+```Go
+
+type Employee struct {
+        FirstName string
+        LastName string
+}
+
+type Student struct {
+        FirstName string
+        LastName string
+}
+
+type Renamable interface {
+        Rename(newLastName string)
+}
+
+//takes a Renamable instead of an Employee or Student
+//can act on either type generically
+func SetLastNameToPlaceholder(r Renamable) {
+        r.Rename("FOO")
+}
+
+//implements Renamable interface because it defines a Rename method
+func (emp *Employee) Rename(newLastName string) {
+        r.Rename(newLastName)
+}
+
+//easy to implement additional types that implement the same interface
+func (student *Student) Rename(newLastName string) {
+        student.Rename(newLastName)
+}
+
+```
