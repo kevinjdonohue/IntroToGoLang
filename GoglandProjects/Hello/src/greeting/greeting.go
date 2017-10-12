@@ -42,6 +42,13 @@ func (salutations Salutations) Greet(do Printer, isFormal bool) {
 	}
 }
 
+func (salutations Salutations) ChannelGreeter(c chan Salutation) {
+	for _, s := range salutations {
+		c <- s
+	}
+	close(c)
+}
+
 func GetPrefix(name string) (prefix string) {
 
 	//shorthand initialization for a map

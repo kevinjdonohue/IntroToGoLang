@@ -692,3 +692,33 @@ func (student *Student) Rename(newLastName string) {
 
 ```
 
+## Module 10:  Concurrency
+
+Go was designed with concurrency in mind - it is "baked in" to the language itself.
+
+Traditionally we would use locks, mutexes, semaphors, etc. in order to "lock" the data while a given thread is reading or updating the (common) data.
+
+In Go, they have solved this issue differently.
+
+Instead, in Go, we share information about the data via a ```channel```
+
+The communication itself is what controls the actions.
+
+### "Share memory by communicating"
+
+### Goroutines
+
+The basic building block of concurrency in Go - it is a lightweight thread.  These are managed by the Go runtime.
+
+### Channels
+
+* Similar to a UNIX pipe
+* Buffered or Unbuffered
+
+### Select Statement
+
+Rules:
+
+1. Execute case that is "ready"
+1. If more than 1 case is "ready" execute one at random
+1. If no cases are "ready" block, unless default is defined
