@@ -1,6 +1,9 @@
 package main
 
-import "greeting"
+import (
+	"./greeting"
+	"fmt"
+)
 
 func main() {
 
@@ -8,6 +11,8 @@ func main() {
 		{"Joe", "Hi"},
 		{"Mary", "Hello"},
 	}
+
+	fmt.Fprintf(&salutations[0], "The count is %d", 10)
 
 	salutations.Greet(greeting.CreatePrintFunction("!!!"), true)
 }

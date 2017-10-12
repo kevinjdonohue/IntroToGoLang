@@ -2,7 +2,7 @@ package slice_test
 
 import (
 	"testing"
-	"slice"
+	"../slice"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -12,7 +12,7 @@ func TestCreateASliceOfIntegers(t *testing.T) {
 	var actualIntegers []int = slice.CreateASliceOfIntegers()
 
 	//assert
-	assert.Equal(t, 2, len(actualIntegers), "because slice contains two integers")
+	assert.Equal(t, 5, len(actualIntegers), "because slice contains two integers")
 }
 
 func TestReturnASliceOfASliceOfIntegers(t *testing.T) {

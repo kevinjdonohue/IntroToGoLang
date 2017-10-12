@@ -2,7 +2,7 @@ package loops_test
 
 import (
 	"testing"
-	"loops"
+	"../loops"
 )
 
 func TestPrintMessageFor(t *testing.T) {

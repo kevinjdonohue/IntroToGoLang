@@ -2,7 +2,7 @@ package interfaces_test
 
 import (
 	"testing"
-	"interfaces"
+	"../interfaces"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -2,8 +2,9 @@ package greeting_test
 
 import (
 	"testing"
+
+	"../greeting"
 	"github.com/stretchr/testify/assert"
-	"greeting"
 )
 
 func TestGetPrefixShouldReturnMrGivenBob(t *testing.T) {
